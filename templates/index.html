@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Churn Prediction Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: auto;
+            max-width: 800px;
+            padding: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Customer Churn Prediction</h2>
+    <form method="POST" action="/predict">
+        <label>Customer Age:</label>
+        <input type="number" name="Customer_Age" required>
+
+        <label>Gender:</label>
+        <select name="Gender">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+
+        <label>Dependent Count:</label>
+        <input type="number" name="Dependent_count" required>
+
+        <label>Education Level:</label>
+        <select name="Education_Level">
+            <option>Graduate</option>
+            <option>High School</option>
+            <option>Post-Graduate</option>
+            <option>Uneducated</option>
+            <option>College</option>
+            <option>Doctorate</option>
+            <option>Unknown</option>
+        </select>
+
+        <label>Marital Status:</label>
+        <select name="Marital_Status">
+            <option>Married</option>
+            <option>Single</option>
+            <option>Divorced</option>
+            <option>Unknown</option>
+        </select>
+
+        <label>Income Category:</label>
+        <select name="Income_Category">
+            <option>Less than $40K</option>
+            <option>$40K - $60K</option>
+            <option>$60K - $80K</option>
+            <option>$80K - $120K</option>
+            <option>$120K +</option>
+            <option>Unknown</option>
+        </select>
+
+        <label>Card Category:</label>
+        <select name="Card_Category">
+            <option>Blue</option>
+            <option>Silver</option>
+            <option>Gold</option>
+            <option>Platinum</option>
+        </select>
+
+        <label>Months on Book:</label>
+        <input type="number" name="Months_on_book" required>
+
+        <label>Total Relationship Count:</label>
+        <input type="number" name="Total_Relationship_Count" required>
+
+        <label>Months Inactive (12 months):</label>
+        <input type="number" name="Months_Inactive_12_mon" required>
+
+        <label>Contacts Count (12 months):</label>
+        <input type="number" name="Contacts_Count_12_mon" required>
+
+        <label>Credit Limit:</label>
+        <input type="number" step="0.01" name="Credit_Limit" required>
+
+        <label>Total Revolving Balance:</label>
+        <input type="number" step="0.01" name="Total_Revolving_Bal" required>
+
+        <label>Avg Open To Buy:</label>
+        <input type="number" step="0.01" name="Avg_Open_To_Buy" required>
+
+        <label>Total Amount Change (Q4/Q1):</label>
+        <input type="number" step="0.01" name="Total_Amt_Chng_Q4_Q1" required>
+
+        <label>Total Transaction Amount:</label>
+        <input type="number" step="0.01" name="Total_Trans_Amt" required>
+
+        <label>Total Transaction Count:</label>
+        <input type="number" name="Total_Trans_Ct" required>
+
+        <label>Total Count Change (Q4/Q1):</label>
+        <input type="number" step="0.01" name="Total_Ct_Chng_Q4_Q1" required>
+
+        <label>Avg Utilization Ratio:</label>
+        <input type="number" step="0.01" name="Avg_Utilization_Ratio" required>
+
+        <label>Utilization Rate:</label>
+        <input type="number" step="0.01" name="Utilization_Rate" required>
+
+        <label>Tenure Group:</label>
+        <select name="Tenure_Group">
+            <option value="0-24">0-24</option>
+            <option value="25-36">25-36</option>
+            <option value="37-48">37-48</option>
+            <option value="49-60">49-60</option>
+        </select>
+
+        <label>Transaction Relationship Interaction:</label>
+        <input type="number" step="0.01" name="Transaction_Relationship_Interaction" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
