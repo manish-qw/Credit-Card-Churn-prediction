@@ -5,7 +5,7 @@ packaging==25.0
 pandas==2.3.0
 python-dateutil==2.9.0.post0
 pytz==2025.2
-scikit-learn==1.7.0
+scikit-learn==1.6.1
 scipy==1.16.0
 setuptools==80.9.0
 six==1.17.0
